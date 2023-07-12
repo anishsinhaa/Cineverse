@@ -10,7 +10,7 @@ const Card = ({ movie }) => {
     setTimeout(() => {
       setIsLoading(false);
     }, 1500);
-  }, [0]);
+  }, []);
 
   return (
     <div>

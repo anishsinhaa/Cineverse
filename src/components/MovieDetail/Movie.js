@@ -9,6 +9,7 @@ const Movie = () => {
     useEffect(() => {
         getData()
         window.scrollTo(0,0)
+        // eslint-disable-next-line
     }, [])
 
     const getData = () => {
@@ -20,12 +21,12 @@ const Movie = () => {
     return (
         <div className="movie">
             <div className="movie-intro">
-                <img className="movie-backdrop" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.backdrop_path : ""}`} />
+                <img className="movie-backdrop" alt="Movie Backdrop" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.backdrop_path : ""}`} />
             </div>
             <div className="movie-detail">
                 <div className="movie-detailLeft">
                     <div className="movie-posterBox">
-                        <img className="movie-poster" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} />
+                        <img className="movie-poster" alt="Movie Poster" src={`https://image.tmdb.org/t/p/original${currentMovieDetail ? currentMovieDetail.poster_path : ""}`} />
                     </div>
                 </div>
                 <div className="movie-detailRight">
@@ -60,10 +61,10 @@ const Movie = () => {
             <div className="movie-links">
                 <div className="movie-heading">Useful Links</div>
                 <div className="link-buttons">{
-                    currentMovieDetail && currentMovieDetail.homepage && <a href={currentMovieDetail.homepage} target="_blank" style={{textDecoration: "none"}}><p><span className="movie__homeButton movie-Button">Homepage <i className="newTab fas fa-external-link-alt"></i></span></p></a>
+                    currentMovieDetail && currentMovieDetail.homepage && <a href={currentMovieDetail.homepage} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}><p><span className="movie__homeButton movie-Button">Homepage <i className="newTab fas fa-external-link-alt"></i></span></p></a>
                 }
                 {
-                    currentMovieDetail && currentMovieDetail.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovieDetail.imdb_id} target="_blank" style={{textDecoration: "none"}}><p><span className="movie__imdbButton movie-Button">IMDb<i className="newTab fas fa-external-link-alt"></i></span></p></a>
+                    currentMovieDetail && currentMovieDetail.imdb_id && <a href={"https://www.imdb.com/title/" + currentMovieDetail.imdb_id} target="_blank" rel="noreferrer" style={{textDecoration: "none"}}><p><span className="movie__imdbButton movie-Button">IMDb<i className="newTab fas fa-external-link-alt"></i></span></p></a>
                 }</div>
                 
             </div>
@@ -76,7 +77,7 @@ const Movie = () => {
                                 company.logo_path 
                                 && 
                                 <span className="productionCompanyImage">
-                                    <img className="movie__productionComapany" src={`https://image.tmdb.org/t/p/original${company.logo_path}`} />
+                                    <img className="movie__productionComapany" alt="ProductionCompany" src={`https://image.tmdb.org/t/p/original${company.logo_path}`} />
                                     <span>{company.name}</span>
                                 </span>
                             }
